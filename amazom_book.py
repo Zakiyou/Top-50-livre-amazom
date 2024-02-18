@@ -24,7 +24,7 @@ repartition_genre = data.groupby('Name').first()['Genre'].value_counts()
 correlation = data['User Rating'].corr(data['Price'])
 #Evolution des critiques totales en fonction d'année
 nb_critique_par_année=data.groupby('Year')['Reviews'].sum()
-nb_critique_par_année =nb_critique_par_année.rename_axis('Année').reset_index(name='nombre_critique_total')
+nb_critique_par_année =nb_critique_par_année.rename_axis('Annee').reset_index(name='nombre_critique_total')
 #Evolution des notes moyennes en fonction d'année
 nb_note_par_année=data.groupby('Year')['User Rating'].mean()
 nb_note_par_année =nb_note_par_année.rename_axis('Année').reset_index(name='nombre_note_moyenne')
@@ -165,14 +165,14 @@ elif onglet_selectionne == 'Évolution des critiques par année':
 elif onglet_selectionne == 'Évolution du la moyenne de note au fil des années':
     st.subheader('10-Évolution du le moyenne de note au fil des années')
     plt.figure(figsize=(10, 10))
-    plt.plot(nb_note_par_année['Année'], nb_note_par_année['nombre_note_moyenne'], marker='o', linestyle='-', color='#E76A30')
+    plt.plot(nb_note_par_année['Annee'], nb_note_par_année['nombre_note_moyenne'], marker='o', linestyle='-', color='#E76A30')
     plt.title('Évolution de la moyenne de note au fil des années')
     plt.xlabel('Année')
     plt.ylabel('Moyenne de note')
     for i, txt in enumerate(nb_note_par_année['nombre_note_moyenne']):
-        plt.text(nb_note_par_année['Année'][i], txt, f"{txt:.2f}", ha='left', va='bottom', fontsize=8, color='#320875')
+        plt.text(nb_note_par_année['Annee'][i], txt, f"{txt:.2f}", ha='left', va='bottom', fontsize=8, color='#320875')
     plt.grid(True)
-    plt.xticks(nb_note_par_année['Année'])
+    plt.xticks(nb_note_par_année['Annee'])
     st.pyplot(plt)
 
 elif onglet_selectionne == 'Répartition des genres par nombre de critiques':
