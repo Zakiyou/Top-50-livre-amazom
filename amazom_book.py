@@ -165,7 +165,10 @@ elif onglet_selectionne == 'Évolution des critiques par année':
 elif onglet_selectionne == 'Évolution du la moyenne de note au fil des années':
     st.subheader('10-Évolution du le moyenne de note au fil des années')
     plt.figure(figsize=(10, 10))
-    plt.plot(nb_note_par_année['Annee'], nb_note_par_année['nombre_note_moyenne'], marker='o', linestyle='-', color='#E76A30')
+    try:
+        plt.plot(nb_note_par_année['Annee'], nb_note_par_année['nombre_note_moyenne'], marker='o', linestyle='-', color='#E76A30')
+    except Exception as e:
+        st.error(f"Une erreur s'est produite : {e}")
     plt.title('Évolution de la moyenne de note au fil des années')
     plt.xlabel('Année')
     plt.ylabel('Moyenne de note')
