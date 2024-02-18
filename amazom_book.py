@@ -152,7 +152,7 @@ elif onglet_selectionne == 'Repartition genre de livre':
 elif onglet_selectionne == 'Évolution des critiques par année':
     st.subheader('9- Évolution du nombre total de critiques au fil des années')
     fig, ax = plt.subplots(figsize=(10, 10))
-    ax.plot(nb_critique_par_année['Annee'], nb_critique_par_année['nombre_critique_total'], marker='o', linestyle='-', color='#27AC75')
+    ax.plot(nb_critique_par_année['Annee'].values, nb_critique_par_année['nombre_critique_total'].values, marker='o', linestyle='-', color='#27AC75')
     plt.title('Évolution du nombre total de critiques au fil des années')
     plt.xlabel('Année')
     plt.ylabel('Nombre total de critiques')
@@ -165,10 +165,7 @@ elif onglet_selectionne == 'Évolution des critiques par année':
 elif onglet_selectionne == 'Évolution du la moyenne de note au fil des années':
     st.subheader('10-Évolution du le moyenne de note au fil des années')
     plt.figure(figsize=(10, 10))
-    try:
-        plt.plot(nb_note_par_année['Annee'].values, nb_note_par_année['nombre_note_moyenne'].values, marker='o', linestyle='-', color='#E76A30')
-    except Exception as e:
-        st.error(f"Une erreur s'est produite : {e}")
+    plt.plot(nb_note_par_année['Annee'].values, nb_note_par_année['nombre_note_moyenne'].values, marker='o', linestyle='-', color='#E76A30')
     plt.title('Évolution de la moyenne de note au fil des années')
     plt.xlabel('Année')
     plt.ylabel('Moyenne de note')
