@@ -151,7 +151,7 @@ elif onglet_selectionne == 'Repartition genre de livre':
 
 elif onglet_selectionne == 'Évolution des critiques par année':
     st.subheader('9- Évolution du nombre total de critiques au fil des années')
-    fig, ax = plt.subplots(figsize=(15, 10))
+    fig, ax = plt.subplots(figsize=(10, 10))
     ax.plot(nb_critique_par_année['Année'], nb_critique_par_année['nombre_critique_total'], marker='o', linestyle='-', color='#27AC75')
     plt.title('Évolution du nombre total de critiques au fil des années')
     plt.xlabel('Année')
